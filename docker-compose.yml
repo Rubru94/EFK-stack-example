@@ -16,6 +16,7 @@ services:
     ports: # Exposes the port 24224 on both TCP and UDP protocol for log aggregation
       - 24224:24224
       - 24224:24224/udp
+      - 9880:9880
 
   # Created using the Docker image elasticsearch:7.17.0
   elasticsearch:
