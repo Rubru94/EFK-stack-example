@@ -1,9 +1,5 @@
 version: "3"
 
-# Define the Docker volume named esdata for the Elasticsearch container.
-volumes:
-  esdata:
-
 # Deploying three container services (fluentd, elasticsearch, and kibana)
 services:
   # Deploy using the custom image automatically be created during the build process.
@@ -39,22 +35,5 @@ services:
       - 5601:5601
     environment: # Defined host configuration
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-
-  # After configuring the Kibana index pattern, you’ll run a Docker container with Fluentd log drive, automatically sending logs to the EFK stack. In this case NGINX.
-  nginx:
-    image: nginx:alpine
-    restart: always
-    links:
-      - fluentd
-    depends_on:
-      - fluentd
-    ports: # Runs nginx service on port 8080
-      - 8090:80
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: fluentd:24224
-        fluentd-async-connect: "true"
-        tag: nginx-docker
     
 
