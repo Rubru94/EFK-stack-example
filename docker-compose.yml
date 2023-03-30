@@ -13,6 +13,8 @@ services:
       - 24224:24224
       - 24224:24224/udp
       - 9880:9880
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
 
   # Created using the Docker image elasticsearch:7.17.0
   elasticsearch:
@@ -21,7 +23,7 @@ services:
       - 9200
     environment:
       - discovery.type=single-node # Runs as a single-node
-    volumes: # Stores elasticsearch data locally on the esdata Docker volume
+    volumes: # Stores elasticsearch data locally
       - ./elasticsearch/esdata:/usr/share/elasticsearch/data
 
   # Created using the Docker image kibana:7.17.0
