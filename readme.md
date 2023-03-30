@@ -20,8 +20,27 @@ curl -X POST -H "Content-Type: application/json" -d '{"spanId": "000000", "trace
 
 ## fluent.conf
 
-    index_name --> Fixed index name
-    logstash_prefix --> Change the index prefix
+    - index_name --> Fixed index name
+    - logstash_prefix --> Change the index prefix
+
+## Index Template
+    - index.lifecycle.name --> specifies the name of the lifecycle policy to apply to new indices that match the index pattern.
+    - index.lifecycle.rollover_alias --> specifies the index alias to be rolled over when the rollover action is triggered for an index.
+
+## RabbitMQ
+
+  - **Queue message**:
+
+    - *Headers*: 
+        ```
+        Content-Type: application/json
+        ```
+    
+    - *Payload*: 
+        ```
+        {"spanId": "000000", "traceId":"111111", "foo":{"a": "a", "b": "b"}, "array": [{"a":"1"}, {"b": "2"}]}
+        ```
+
 
 ## Bibliography 
 

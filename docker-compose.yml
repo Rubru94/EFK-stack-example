@@ -37,5 +37,15 @@ services:
       - 5601:5601
     environment: # Defined host configuration
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ./rabbitmq/data/:/var/lib/rabbitmq/
+        - ./rabbitmq/log/:/var/log/rabbitmq
     
 
