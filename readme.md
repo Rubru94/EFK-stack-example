@@ -7,17 +7,23 @@
 ```shell
 docker compose up -d
 ```
+## cURL to consume API rest
+
+```
+http://localhost:9200/span-*/_search?filter_path=hits.total.value,hits.hits.fields
+```
 
 ## fluentd logs
 
   - ## Sample log
     ```shell
-    echo '{"spanId":"172170139140","traceId":"3123213123"}'|fluent-cat span-2023.03.30
+    echo '{"spanId":"172170139140","traceId":"3123213123"}'|fluent-cat span-2023.03.31
     ```
+    
 
   - ## cURL to fluentd http port
     ```shell
-    curl -X POST -H "Content-Type: application/json" -d '{"spanId":  "000000", "traceId":"111111", "foo":{"a": "a", "b": "b"}, "array"[{"a":"a"}, {"b": "b"}]}' http://localhost:9880/span-2023.03.30 
+    curl -X POST -H "Content-Type: application/json" -d '{"spanId":  "000000", "traceId":"111111", "foo":{"a": "a", "b": "b"}, "array"[{"a":"a"}, {"b": "b"}]}' http://localhost:9880/span-2023.03.31
     ```
 
   - ## RabbitMQ
