@@ -1,6 +1,5 @@
 version: "3"
 
-# Deploying three container services (fluentd, elasticsearch, and kibana)
 services:
   # Deploy using the custom image automatically be created during the build process.
   fluentd: 
@@ -43,6 +42,15 @@ services:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD=changeme
+
+  metricbeat:
+    build: ./metricbeat
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    volumes:
+      - ./metricbeat/data:/usr/share/metricbeat/data
+    depends_on:
+      - elasticsearch
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
