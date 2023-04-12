@@ -4,7 +4,7 @@ FROM fluentd:v1.14-1
 # Use root account to use apk
 USER root
 
-# below RUN includes plugin as examples elasticsearch is not required# you may customize including plugins as you wish
+# below RUN includes plugin as examples elasticsearch is not required # you may customize including plugins as you wish
 RUN apk add --no-cache --update --virtual .build-deps \
         sudo build-base ruby-dev \
 && gem uninstall -I elasticsearch \

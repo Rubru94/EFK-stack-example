@@ -1,0 +1,165 @@
+{
+    "dynamic_templates": [],
+    "properties": {
+      "@timestamp": {
+        "format": "strict_date_optional_time",
+        "type": "date"
+      },
+      "resourceSpans": {
+        "dynamic": true,
+        "type": "nested",
+        "properties": {
+          "resource": {
+            "dynamic": true,
+            "type": "nested",
+            "properties": {
+              "attributes": {
+                "dynamic": true,
+                "type": "nested",
+                "properties": {
+                  "value": {
+                    "dynamic": true,
+                    "type": "nested",
+                    "properties": {
+                      "stringValue": {
+                        "eager_global_ordinals": false,
+                        "norms": false,
+                        "index": true,
+                        "store": false,
+                        "type": "keyword",
+                        "split_queries_on_whitespace": false,
+                        "index_options": "docs",
+                        "doc_values": true
+                      }
+                    }
+                  },
+                  "key": {
+                    "eager_global_ordinals": false,
+                    "norms": false,
+                    "index": true,
+                    "store": false,
+                    "type": "keyword",
+                    "index_options": "docs",
+                    "split_queries_on_whitespace": false,
+                    "doc_values": true
+                  }
+                }
+              }
+            }
+          },
+          "scopeSpans": {
+            "dynamic": true,
+            "type": "nested",
+            "properties": {
+              "spans": {
+                "dynamic": true,
+                "type": "nested",
+                "properties": {
+                  "spanId": {
+                    "eager_global_ordinals": false,
+                    "norms": false,
+                    "index": true,
+                    "store": false,
+                    "type": "keyword",
+                    "index_options": "docs",
+                    "split_queries_on_whitespace": false,
+                    "doc_values": true
+                  },
+                  "traceId": {
+                    "eager_global_ordinals": false,
+                    "norms": false,
+                    "index": true,
+                    "store": false,
+                    "type": "keyword",
+                    "index_options": "docs",
+                    "split_queries_on_whitespace": false,
+                    "doc_values": true
+                  },
+                  "endTimeUnixNano": {
+                    "type": "long"
+                  },
+                  "kind": {
+                    "type": "long"
+                  },
+                  "name": {
+                    "eager_global_ordinals": false,
+                    "norms": false,
+                    "index": true,
+                    "store": false,
+                    "type": "keyword",
+                    "index_options": "docs",
+                    "split_queries_on_whitespace": false,
+                    "doc_values": true
+                  },
+                  "attributes": {
+                    "dynamic": true,
+                    "type": "nested",
+                    "properties": {
+                      "value": {
+                        "dynamic": true,
+                        "type": "nested",
+                        "properties": {
+                          "stringValue": {
+                            "eager_global_ordinals": false,
+                            "norms": false,
+                            "index": true,
+                            "store": false,
+                            "type": "keyword",
+                            "index_options": "docs",
+                            "split_queries_on_whitespace": false,
+                            "doc_values": true
+                          }
+                        }
+                      },
+                      "key": {
+                        "eager_global_ordinals": false,
+                        "norms": false,
+                        "index": true,
+                        "store": false,
+                        "type": "keyword",
+                        "index_options": "docs",
+                        "split_queries_on_whitespace": false,
+                        "doc_values": true
+                      }
+                    }
+                  },
+                  "startTimeUnixNano": {
+                    "type": "long"
+                  },
+                  "parentSpanId": {
+                    "eager_global_ordinals": false,
+                    "norms": false,
+                    "index": true,
+                    "store": false,
+                    "type": "keyword",
+                    "index_options": "docs",
+                    "split_queries_on_whitespace": false,
+                    "doc_values": true
+                  },
+                  "status": {
+                    "dynamic": true,
+                    "type": "nested",
+                    "properties": {
+                      "code": {
+                        "type": "long"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "@log_name": {
+        "eager_global_ordinals": false,
+        "norms": false,
+        "index": true,
+        "store": false,
+        "type": "keyword",
+        "index_options": "docs",
+        "split_queries_on_whitespace": false,
+        "doc_values": true
+      }
+    }
+}
