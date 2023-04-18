@@ -1,0 +1,78 @@
+{
+  "dynamic_templates": [],
+  "properties": {
+    "spanId": {
+      "type": "keyword"
+    },
+    "traceId": {
+      "type": "keyword"
+    },
+    "timeUnixNano": {
+      "type": "long"
+    },
+    "body": {
+      "type": "text"
+    },
+    "@timestamp": {
+      "format": "strict_date_optional_time",
+      "type": "date"
+    },
+    "@log_name": {
+      "type": "keyword"
+    },
+    "resources": {
+      "dynamic": true,
+      "type": "object",
+      "properties": {
+        "telemetry.sdk.language": {
+          "type": "keyword"
+        },
+        "service.name": {
+          "type": "keyword"
+        }
+      }
+    },
+    "attributes": {
+      "dynamic": true,
+      "type": "object",
+      "properties": {
+        "prefixParentSpanId": {
+          "type": "keyword"
+        },
+        "ProcessName": {
+          "type": "keyword"
+        },
+        "MachineName": {
+          "type": "keyword"
+        },
+        "ProjectName": {
+          "type": "keyword"
+        },
+        "ServiceType": {
+          "type": "keyword"
+        },
+        "UUAA": {
+          "type": "keyword"
+        },
+        "StarterServiceId": {
+          "type": "keyword"
+        },
+        "prefixSpanId": {
+          "type": "keyword"
+        },
+        "InvocationUser": {
+          "type": "keyword"
+        },
+        "BusinessObject": {
+          "type": "keyword"
+        },
+        "EngineName": {
+          "type": "keyword"
+        },
+        "ClientExternalId": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
