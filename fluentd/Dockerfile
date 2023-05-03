@@ -9,7 +9,7 @@ RUN apk add --no-cache --update --virtual .build-deps \
         sudo build-base ruby-dev \
 && gem uninstall -I elasticsearch \
 && gem install elasticsearch -v 7.17.0 \
-&& sudo gem install fluent-plugin-elasticsearch \
+&& sudo gem install fluent-plugin-elasticsearch -v 5.2.5 \
 && sudo gem install fluent-plugin-rabbitmq \
 && sudo gem install fluent-plugin-rewrite-tag-filter \
 && sudo gem sources --clear-all \
